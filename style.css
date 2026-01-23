@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  color: #1f2933;
+}
+
+/* Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.logo {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+
+
+nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+nav a:hover {
+  color: #2563eb;
+}
+
+/* Hero */
+.hero {
+  height: 420px;
+  background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.small-hero {
+  height: 280px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons */
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  background: #10b981;
+}
+
+/* Layout */
+.cards-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Subject tiles */
+.subjects {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 1.5rem;
+}
+
+.subject-tile {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #1f2933;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.biodiversity { border-top: 4px solid #10b981; }
+.climate { border-top: 4px solid #2563eb; }
+.restoration { border-top: 4px solid #059669; }
+.marine { border-top: 4px solid #0ea5e9; }
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem;
+  flex-wrap: wrap;
+}
+
+.filters input, .filters select {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

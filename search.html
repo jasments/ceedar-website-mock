@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Reviews – CEEDER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="sticky-header">
+  <a href="index.html" class="logo">
+    <strong>CEEDER</strong>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About CEEDER</a>
+    <a href="search.html">Search Reviews</a>
+    <a href="how-it-works.html">How It Works</a>
+  </nav>
+</header>
+
+<section class="hero small-hero fade-in">
+  <div class="hero-content">
+    <h1>Search Evidence Reviews</h1>
+    <p>Explore expert-reviewed environmental research</p>
+  </div>
+</section>
+
+<section class="filters fade-in">
+  <input id="search-input" type="text" placeholder="Search reviews…">
+  <select id="topic-filter">
+    <option value="all">All topics</option>
+    <option value="Biodiversity">Biodiversity</option>
+    <option value="Climate">Climate</option>
+    <option value="Restoration">Restoration</option>
+    <option value="Marine">Marine</option>
+  </select>
+</section>
+
+<main class="cards-container">
+  <div class="cards">
+    <div class="card fade-in" data-topic="Restoration">
+      <h3>Forest Restoration Effects</h3>
+      <p class="meta">Systematic Review · 2022 · Gold</p>
+      <p>Impacts of forest restoration on biodiversity outcomes.</p>
+      <a href="review.html" class="btn">View Review</a>
+    </div>
+
+    <div class="card fade-in" data-topic="Marine">
+      <h3>Marine Protected Areas</h3>
+      <p class="meta">Evidence Synthesis · 2021 · Green</p>
+      <p>Ecological effectiveness of marine protection.</p>
+      <a href="review.html" class="btn">View Review</a>
+    </div>
+
+    <div class="card fade-in" data-topic="Climate">
+      <h3>Climate Mitigation Strategies</h3>
+      <p class="meta">Systematic Review · 2020 · Green</p>
+      <p>Interventions to reduce greenhouse gas emissions.</p>
+      <a href="review.html" class="btn">View Review</a>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
