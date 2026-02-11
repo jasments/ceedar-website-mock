@@ -1,50 +1,97 @@
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f5f7fa;
-  color: #1f2933;
+/* =========================
+   GLOBAL / RESET
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Header */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* stops sideways scroll */
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1f2933;
+  line-height: 1.5;
+}
+
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   HEADER
+========================= */
 .sticky-header {
   position: sticky;
   top: 0;
-  background: white;
+  z-index: 1000;
+
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  z-index: 100;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  padding: 14px 18px;
 }
 
 .logo {
   text-decoration: none;
   color: inherit;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 18px;
+  letter-spacing: 0.04em;
 }
 
+.sticky-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
 
-
-nav a {
-  margin-left: 1.5rem;
+.sticky-header nav a {
   text-decoration: none;
   font-weight: 600;
   color: #1f2933;
+
+  padding: 8px 10px;
+  border-radius: 10px;
+
+  white-space: nowrap; /* prevents ugly wrapping inside each link */
 }
 
-nav a:hover {
+.sticky-header nav a:hover {
   color: #2563eb;
+  background: #f1f5f9;
 }
 
-/* Hero */
+/* =========================
+   HERO
+========================= */
 .hero {
   height: 420px;
-  background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee")
+    center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 0 16px;
 }
 
 .small-hero {
@@ -52,104 +99,232 @@ nav a:hover {
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.35);
 }
 
 .hero-content {
-  color: white;
-  text-align: center;
   position: relative;
   z-index: 1;
+  text-align: center;
+  color: #fff;
+  max-width: 1100px;
+  width: 100%;
 }
 
-/* Buttons */
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(26px, 6vw, 44px);
+  line-height: 1.1;
+}
+
+/* =========================
+   BUTTONS
+========================= */
 .btn {
+  display: inline-block;
   background: #2563eb;
-  color: white;
+  color: #fff;
   padding: 0.8rem 1.4rem;
-  border-radius: 8px;
+  border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
 }
 
 .secondary-btn {
   background: #10b981;
 }
 
-/* Layout */
+/* =========================
+   CARDS (for your how-it-works page)
+   Your HTML uses: <main class="cards-container"> with .card inside
+========================= */
 .cards-container {
   max-width: 1200px;
-  margin: auto;
-  padding: 2rem;
-}
+  margin: 0 auto;
+  padding: 28px 18px 44px;
 
-.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
 .card {
-  background: white;
+  background: #fff;
   padding: 1.5rem;
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+  min-width: 0;
+  overflow-wrap: anywhere; /* stops long words/urls breaking layout */
 }
 
-/* Subject tiles */
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.card p {
+  margin: 0;
+  color: #374151;
+}
+
+/* =========================
+   SUBJECT TILES (for pages that use these)
+========================= */
 .subjects {
   max-width: 1200px;
   margin: 3rem auto;
-  padding: 0 2rem;
+  padding: 0 18px;
   text-align: center;
 }
 
 .subject-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
 .subject-tile {
-  background: white;
+  background: #fff;
   padding: 2rem;
   border-radius: 16px;
   text-decoration: none;
   color: #1f2933;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
 }
 
 .biodiversity { border-top: 4px solid #10b981; }
-.climate { border-top: 4px solid #2563eb; }
-.restoration { border-top: 4px solid #059669; }
-.marine { border-top: 4px solid #0ea5e9; }
+.climate      { border-top: 4px solid #2563eb; }
+.restoration  { border-top: 4px solid #059669; }
+.marine       { border-top: 4px solid #0ea5e9; }
 
-/* Filters */
+/* =========================
+   FILTERS (for search page)
+========================= */
 .filters {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin: 2rem;
+  margin: 2rem 18px;
   flex-wrap: wrap;
 }
 
-.filters input, .filters select {
+.filters input,
+.filters select {
   padding: 0.7rem 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #d1d5db;
+  max-width: 100%;
 }
 
-/* Fade-in */
+/* =========================
+   FADE IN (your script toggles .visible)
+========================= */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: 0.6s;
+  transition: 0.6s ease;
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  /* Stack header so it never squeezes/overflows */
+  .sticky-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Turn nav into a tidy 2-column grid on phones */
+  .sticky-header nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .sticky-header nav a {
+    width: 100%;
+    text-align: center;
+    background: #f1f5f9;
+    padding: 10px;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+    padding: 20px 16px 36px;
+  }
+
+  .hero {
+    height: 320px;
+  }
+
+  .small-hero {
+    height: 220px;
+  }
+}
+/* About page safety layout (works even if your HTML is different) */
+main, section {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  padding: 28px 18px 44px;
+}
+
+@media (max-width: 560px) {
+  main {
+    padding: 20px 16px 36px;
+  }
+}
+
+/* Prevent text/images from breaking layout */
+p, h1, h2, h3, a {
+  overflow-wrap: anywhere;
+}
+.hero-buttons{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap; /* so it wraps nicely on mobile */
+  margin-top: 18px;
+}
+.subject-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+@media (max-width: 1000px){
+  .subject-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px){
+  .subject-grid{ grid-template-columns: 1fr; }
 }
